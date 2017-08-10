@@ -26,8 +26,8 @@ def str_to_datetime(date_str):
 	https://www.tutorialspoint.com/python/time_strptime.htm
 	"""
 
-	Try:
+	try:
 		return datetime.datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S')
-	Except exception as e:
+	except Exception as e:
 		return e
 
