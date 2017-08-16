@@ -31,3 +31,36 @@ def str_to_datetime(date_str):
 	except Exception as e:
 		return e
 
+
+
+def sort_dict(d, sort_by=1, ascending=False):
+    """
+    Takes a dictionary and sorts it by key or value, ascending or descending. 
+    Returns a list of (key, value) tuples.
+    
+    Requires operator module.
+    
+    Parameters:
+    -----------
+    d: dictionary to sort
+    sort_by: 0 sort by key, 1 sort by value
+    ascending: True for low to high, False for high to low.
+    """
+    
+    # Lame check if operator was imported
+    # read more here: 
+    # https://stackoverflow.com/questions/30483246/how-to-check-if-a-python-module-has-been-imported
+    
+    try:
+        operator
+    except:
+        print 'operator module required. Importing it now'
+        import operator
+    
+    sorted_d = sorted(d.iteritems(), key=operator.itemgetter(sort_by))
+    
+    if ascending:
+        return sorted_d
+    
+    else:
+        return sorted_d[::-1]
